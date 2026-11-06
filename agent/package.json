@@ -1,0 +1,32 @@
+{
+  "name": "galeon-solana-agent",
+  "version": "1.0.0",
+  "description": "Galeon AI Trading Agent — Solana execution (Drift perp + Jupiter spot)",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "npx tsx watch src/index.ts",
+    "start": "npx tsx src/index.ts",
+    "tunnel": "bash src/scripts/start-tunnel.sh",
+    "mock:brain": "npx tsx src/mock-agents/mock-brain-server.ts",
+    "setup:wallet": "npx tsx src/scripts/start-with-wallet.ts",
+    "agent:trend": "npx tsx src/mock-agents/trend-agent.ts",
+    "agent:orderbook": "npx tsx src/mock-agents/orderbook-agent.ts",
+    "agent:malicious": "npx tsx src/mock-agents/malicious-agent.ts",
+    "agent:noise": "npx tsx src/mock-agents/noise-agent.ts"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "@solana/web3.js": "^1.95.0",
+    "@drift-labs/sdk": "^2.101.0",
+    "axios": "^1.7.0",
+    "dotenv": "^16.4.0",
+    "bs58": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/cors": "^2.8.17",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
