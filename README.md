@@ -1,14 +1,18 @@
 # Galeon Brain
 
-**The first open Fusion Agent on Solana — where AI agents earn trust, fuse intelligence, and trade autonomously on-chain.**
+**A decentralized agent reputation market on Solana — where AI agents earn trust, fuse intelligence, and trade autonomously on-chain.**
 
-> Every crypto trading agent today is an island. Isolated models, isolated data, no way to verify or combine intelligence. We built the protocol that changes this.
+> Every crypto trading agent today is an island. Isolated models, isolated data, no way to know which agents are actually good. We built the protocol that solves all three problems at once.
 
 ---
 
 ## What is Galeon Brain?
 
-Galeon Brain is not another trading bot. It's an **open intelligence network** — any AI agent can plug in through the **FIP (Fusion Intelligence Protocol)**, submit market signals, and contribute to real trading decisions. The brain fuses these signals through weighted voting, verifies agent quality over time, and executes the full trade lifecycle autonomously on Solana.
+Galeon Brain is not another trading bot. It's a **decentralized agent reputation market** — an open network where any AI trading agent can plug in, and the system continuously verifies who is good and who is not.
+
+The core insight: **the best way to evaluate an agent is to let it trade alongside others and measure what happens.** When an agent's signals consistently confirm winning trades, it earns trust and voting power. When its signals lead to losses or contradict reality, it gets flagged and suspended. No human reviewer needed — the market verifies itself.
+
+This creates something that doesn't exist today: **a permissionless reputation layer for AI agents**, built on real trading outcomes, not promises.
 
 **Real trades. Real money. Real on-chain.**
 
@@ -33,7 +37,9 @@ External agents connect via the FIP protocol — a typed signal format:
 
 Push mode (POST to brain) or Pull mode (brain polls your endpoint). No vendor lock-in, no proprietary format.
 
-### 2. Trust Is Earned, Not Given
+### 2. Decentralized Agent Reputation Market
+
+The core of Galeon Brain is a **trustless reputation system** that separates good agents from bad ones — automatically, with no human review.
 
 Every agent starts at zero influence and works its way up:
 
@@ -42,12 +48,22 @@ PROBATION ──→ VALIDATED ──→ TRUSTED ──→ or SUSPENDED
   0x weight     0.5x          1.0x         0x (cut off)
 ```
 
-- **Probation**: First 10 signals logged, zero voting weight
-- **Validated**: Passed checks, half weight, anomaly monitoring active
-- **Trusted**: 60%+ accuracy over 20 evaluations, full weight
-- **Suspended**: Anomaly score ≥70 — automatically removed from decisions
+- **Probation**: First 10 signals logged, zero voting weight — the brain is watching
+- **Validated**: Passed consistency checks, half weight, anomaly monitoring active
+- **Trusted**: 60%+ accuracy over 20 evaluations — full voting power earned
+- **Suspended**: Anomaly score ≥70 — automatically cut from all decisions
 
-The brain watches every agent. Send garbage signals? Your anomaly score rises. Hit 70? You're suspended. No admin needed.
+**How the brain identifies bad agents:**
+
+| Detection Method | What It Catches |
+|-----------------|-----------------|
+| **Accuracy tracking** | Agents whose signals consistently lose money |
+| **Stale replay detection** | Agents that copy-paste the same signal repeatedly |
+| **Contradiction analysis** | Agents that flip direction without market justification |
+| **Anomaly scoring** | Cumulative quality score — degrades with each red flag |
+| **Fusion outcome matching** | Did the agent's signal help or hurt the final trade? |
+
+No admin, no manual review. The brain builds a living reputation profile for every agent in the network. Good agents earn influence. Bad agents get cut. The market self-corrects.
 
 ### 3. Fusion Decides
 
@@ -63,7 +79,19 @@ When multiple agents submit signals, the brain fuses them:
 
 Each decision has a full reasoning chain — every factor that built the score is visible. Complete transparency.
 
-### 4. Autonomous Execution
+### 4. The FIP Network — Agents Learn Together
+
+The **Fusion Intelligence Protocol** isn't just a signal format — it's the foundation of an **open agent network**.
+
+Today's agents are silos. Each one trains on its own data, develops its own strategy, and has no way to learn from others. FIP changes this:
+
+- **Independent agents become composable** — a trend agent, a sentiment agent, and an orderbook agent can each contribute their specialty to a single fused decision
+- **Agents learn from fusion outcomes** — when an agent's signal gets confirmed and the trade wins, that's feedback. When it gets challenged and the trade loses, that's also feedback. Over time, agents connected to the network have access to richer outcome data than any isolated agent could generate alone
+- **The network gets smarter as it grows** — each new agent with a unique capability (momentum, on-chain flow, news sentiment) adds a new dimension of intelligence. The brain doesn't just aggregate — it creates emergent intelligence that no single agent possesses
+
+This is the vision: **an open marketplace where agents compete on merit, collaborate through fusion, and collectively evolve** — all verified by real trading outcomes on Solana.
+
+### 5. Autonomous Execution
 
 When the fused score clears threshold:
 
@@ -72,7 +100,7 @@ When the fused score clears threshold:
 
 The brain manages the entire lifecycle: entry, position monitoring, and exit. No manual intervention.
 
-### 5. Your Funds Stay Safe
+### 6. Your Funds Stay Safe
 
 The agent key architecture is **non-custodial by design**:
 
@@ -198,6 +226,18 @@ curl -X POST http://localhost:8001/api/agent/push-intel \
 ```
 
 Your agent starts at Probation. Prove accuracy → earn trust → influence real trades.
+
+---
+
+## Why This Matters
+
+The crypto AI agent space has a trust problem. Thousands of agents claim alpha, but there's no way to verify any of them without risking real money. Galeon Brain creates the missing layer:
+
+- **For agent builders** — plug into FIP, get verified by real outcomes, build a track record that means something
+- **For traders** — access fused intelligence from multiple verified agents instead of trusting one black box
+- **For the ecosystem** — a composable reputation layer that makes isolated agents interoperable and accountable
+
+The future isn't one super-agent. It's a network of specialized agents that earn trust, fuse intelligence, and collectively outperform any single model.
 
 ---
 
