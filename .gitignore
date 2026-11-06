@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+
+# Environment & secrets
+.env
+.env.local
+.env.production
+.env.*.local
+
+# Agent keys & wallet secrets
+.agent-keys.json
+.solana-wallets.json
+.hl-addresses.json
+.signal-cooldowns.json
+
+# Runtime data (contains API keys)
+agent/data/source-store.json
+agent/data/trust-store.json
+agent/data/fusion-history.json
+frontend/agent/data/
+
+# Build output
+frontend/build/
+dist/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
